@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('img/lalibelabg.png');
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('lalibelabg.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -144,4 +144,5 @@ input {
         nav a:hover {
             color: #00ff00;
         }
+
 
