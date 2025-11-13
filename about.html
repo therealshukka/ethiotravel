@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EthioTravel - About Us</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: monospace;
+           background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('img/lalibelabg.png');
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #0d0d0d;
+            padding: 1rem 2rem;
+            border-radius: 15px;
+            margin: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffff00; /* Yellow */
+        }
+
+        .logo span {
+            color: #00ff00; /* Green */
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #00ff00;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 50vh;
+            background: url('https://images.unsplash.com/photo-1593170637105-8b7e52c63f18?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .hero-overlay {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 2rem 3rem;
+            border-radius: 15px;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #cccccc;
+        }
+
+        /* About Section */
+        .about-container {
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 2.5rem;
+            color: #ffffff;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 1.8rem;
+            color: #ffff00;
+            margin-bottom: 1.2rem;
+        }
+
+        .about-text p {
+            color: #cccccc;
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            overflow: hidden;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.03);
+        }
+
+        /* Mission Vision Section */
+        .mission-vision {
+            margin-top: 4rem;
+            background: rgba(26, 26, 26, 0.8);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        .mission-vision h2 {
+            text-align: center;
+            font-size: 1.8rem;
+            color: #ffff00;
+            margin-bottom: 2rem;
+        }
+
+        .mv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .mv-card {
+            background: #1a1a1a;
+            padding: 1.8rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .mv-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .mv-card h3 {
+            font-size: 1.4rem;
+            color: #00ff00;
+            margin-bottom: 1rem;
+        }
+
+        .mv-card p {
+            color: #cccccc;
+            line-height: 1.7;
+        }
+
+        /* Team Section */
+        .team-section {
+            margin-top: 4rem;
+        }
+
+        .team-title {
+            text-align: center;
+            font-size: 1.8rem;
+            color: #ffff00;
+            margin-bottom: 2rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+        }
+
+        .team-member {
+            background: #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-8px);
+        }
+
+        .member-img {
+            width: 100%;
+            height: 220px;
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #00ff00;
+        }
+
+        .member-info {
+            padding: 1.2rem;
+        }
+
+        .member-info h4 {
+            font-size: 1.2rem;
+            color: #ffffff;
+            margin-bottom: 0.3rem;
+        }
+
+        .member-info p {
+            color: #00ff00;
+            font-size: 0.95rem;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #0d0d0d;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            border-radius: 15px;
+            margin: 2rem 1rem 1rem;
+            font-size: 0.9rem;
+            color: #aaaaaa;
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-text h2, .about-text p {
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 700px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-title {
+                font-size: 1.8rem;
+            }
+
+            .mission-vision, .team-section {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                height: 40vh;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .about-title {
+                font-size: 1.6rem;
+            }
+
+            .mv-grid, .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">Ethio<span>Travel</span></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">home</a></li>
+                <li><a href="gallery.html">gallery</a></li>
+                <li><a href="destination.html">tour destination</a></li>
+                <li><a href="about.html">about us</a></li>
+                <li><a href="feedback.html">feedback</a></li>
+                <li><a href="login.html">log out</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay">
+            <h1>Our Story, Your Journey</h1>
+            <p>Bringing Ethiopia's ancient wonders and vibrant culture to travelers worldwide since 2010.</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-container">
+        <h2 class="about-title">About EthioTravel</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h2>Discover the Heart of Africa</h2>
+                <p>Founded in 2025 by thereal_shukka and tamrat_tek, this website is a homework that tamrat_tek gives, and thereal_shukka made it and published it in Github </p>
+                
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1593170637105-8b7e52c63f18?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ethiopian cultural celebration">
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="about-container">
+        <div class="mission-vision">
+            <h2>Our Mission & Values</h2>
+            <div class="mv-grid">
+                <div class="mv-card">
+                    <h3>shukka's Mission</h3>
+                    <p>to be successful website developer, and make a animation learning website </p>
+                </div>
+                <div class="mv-card">
+                    <h3>shukka's Vision</h3>
+                    <p>To be Ethiopia's most trusted and innovative  animator and developer, and expand animation and developers community in ethiopia</p>
+                </div>
+               
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="about-container team-section">
+        <h3 class="team-title">this website is</h3>
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="member-img"> <img src="img/shukka.png" alt="shukka" class="member-img"> </div>
+                <div class="member-info">
+                    <h4>builded by</h4>
+                    <p>thereal_shukka</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-img"> <img src="img/tamrat.png" alt="tamrat"></div>
+                <div class="member-info">
+                    <h4>inspired by</h4>
+                    <p>tamrat_tek</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-img"><img src="img/chat.png" alt="chatgpt"></div>
+                <div class="member-info">
+                    <h4>guided by</h4>
+                    <p>chatGPT (didnt generated the code but guided me for the Design)</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-img"> <img src="img/udacity.png" alt="udacity(ethiocoders)"></div>
+                <div class="member-info">
+                    <h4>honorable mention</h4>
+                    <p>udacity(ethiocoders)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        © 2025 ethio-tourism site, all rights reserved
+    </footer>
+</body>
+</html>
+

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EthioTravel - Tour Destinations</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: monospace;
+             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('img/lalibelabg.png');
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #0d0d0d;
+            padding: 1rem 2rem;
+            border-radius: 15px;
+            margin: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffff00; /* Yellow */
+        }
+
+        .logo span {
+            color: #00ff00; /* Green */
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #00ff00;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 50vh;
+            background: url('https://images.unsplash.com/photo-1593170637105-8b7e52c63f18?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .hero-overlay {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 2rem 3rem;
+            border-radius: 15px;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #cccccc;
+        }
+
+        /* Destinations Section */
+        .destinations-container {
+            padding: 3rem 2rem;
+        }
+
+        .destinations-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            color: #ffffff;
+        }
+
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .destination-card {
+            background-color: #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .destination-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.8);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.8rem;
+        }
+
+        .card-content h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
+            color: #ffff00;
+        }
+
+        .card-content .highlight {
+            display: inline-block;
+            background: linear-gradient(135deg, #00ff00 0%, #ffff00 100%);
+            color: #000;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: bold;
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .card-content p {
+            color: #cccccc;
+            margin-bottom: 1.2rem;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .card-info {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #333;
+            padding-top: 1rem;
+            color: #aaaaaa;
+            font-size: 0.9rem;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .info-value {
+            font-weight: bold;
+            color: #00ff00;
+            font-size: 1.1rem;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #0d0d0d;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            border-radius: 15px;
+            margin: 1rem;
+            font-size: 0.9rem;
+            color: #aaaaaa;
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .destinations-title {
+                font-size: 1.8rem;
+            }
+
+            .destinations-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                height: 40vh;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .card-content {
+                padding: 1.2rem;
+            }
+
+            .card-content h3 {
+                font-size: 1.3rem;
+            }
+
+            .info-item {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">Ethio<span>Travel</span></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">home</a></li>
+                <li><a href="gallery.html">gallery</a></li>
+                <li><a href="destination.html">tour destination</a></li>
+                <li><a href="about.html">about us</a></li>
+                <li><a href="feedback.html">feedback</a></li>
+                <li><a href="login.html">log out</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay">
+            <h1>Discover Ethiopia's Iconic Destinations</h1>
+            <p>Explore ancient kingdoms, majestic mountains, and vibrant cultures across the cradle of humanity.</p>
+        </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section class="destinations-container">
+        <h2 class="destinations-title">Featured Tour Destinations</h2>
+        <div class="destinations-grid">
+            <!-- Destination 1 -->
+            <div class="destination-card">
+                <img src="img/lalibela.png" alt="Lalibela" class="card-image">
+                <div class="card-content">
+                    <h3>Lalibela</h3>
+                    <span class="highlight">UNESCO World Heritage Site</span>
+                    <p>Famous for its 11 rock-hewn churches carved from volcanic rock in the 12th century. A spiritual center for Ethiopian Orthodox Christians and one of the world’s most extraordinary religious sites.</p>
+                    <div class="card-info">
+                        <div class="info-item">
+                            <span>Best Time</span>
+                            <span class="info-value">Oct–Mar</span>
+                        </div>
+                        <div class="info-item">
+                            <span>Duration</span>
+                            <span class="info-value">2–3 Days</span>
+                        </div>
+                        <div class="info-item">
+                            <span>Difficulty</span>
+                            <span class="info-value">Easy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Destination 2 -->
+            <div class="destination-card">
+                <img src="img/simien.png" alt="Simien Mountains" class="card-image">
+                <div class="card-content">
+                    <h3>Simien Mountains</h3>
+                    <span class="highlight">National Park & Wildlife</span>
+                    <p>Dramatic escarpments rising over 4,500 meters, home to endemic species like the Gelada baboon. Perfect for trekking, birdwatching, and panoramic views of the Ethiopian Highlands.</p>
+                    <div class="card-info">
+                        <div class="info-item">
+                            <span>Best Time</span>
+                            <span class="info-value">Oct–Apr</span>
+                        </div>
+                        <div class="info-item">
+                            <span>Duration</span>
+                            <span class="info-value">3–7 Days</span>
+                        </div>
+                        <div class="info-item">
+                            <span>Difficulty</span>
+                            <span class="info-value">Moderate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Destination 3 -->
+            <div class="destination-card">
+                <img src="img/danakil.png" alt="Danakil Depression" class="card-image">
+                <div class="card-content">
+                    <h3>Danakil Depression</h3>
+                    <span class="highlight">Geological Wonder</span>
+                    <p>One of Earth’s hottest and lowest places, featuring neon-colored sulfur springs, vast salt flats, and the active Erta Ale volcano with its lava lake—often called “Hell on Earth.”</p>
+                    <div class="card-info">
+                        <div class="info-item">
+                            <span>Best Time</span>
+                            <span class="info-value">Oct–Mar</span>
+                        </div>
+                        <div class="info-item">
+                            <span>Duration</span>
+                            <span class="info-value">4–5 Days</span>
+                        </div>
+                        <div class="info-item">
+                            <span>Difficulty</span>
+                            <span class="info-value">Challenging</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Destination 4 -->
+            <div class="destination-card">
+                <img src="img/axum.png" alt="Axum" class="card-image">
+                <div class="card-content">
+                    <h3>Axum</h3>
+                    <span class="highlight">Ancient Capital</span>
+                    <p>Historic city of the Aksumite Empire, home to towering obelisks, the rumored Ark of the Covenant, and ancient royal tombs. A pivotal site in Ethiopian and biblical history.</p>
+                    <div class="card-info">
+                        <div class="info-item">
+                            <span>Best Time</span>
+                            <span class="info-value">Nov–Feb</span>
+                        </div>
+                        <div class="info-item">
+                            <span>Duration</span>
+                            <span class="info-value">1–2 Days</span>
+                        </div>
+                        <div class="info-item">
+                            <span>Difficulty</span>
+                            <span class="info-value">Easy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Destination 5 -->
+            <div class="destination-card">
+                <img src="img/abay.png" alt="Lake Tana" class="card-image">
+                <div class="card-content">
+                    <h3>Lake Tana & Blue Nile Falls</h3>
+                    <span class="highlight">Scenic & Spiritual</span>
+                    <p>Ethiopia’s largest lake dotted with 37 ancient monasteries. The Blue Nile Falls ("Tis Abay") nearby is one of Africa’s most powerful waterfalls and a national symbol.</p>
+                    <div class="card-info">
+                        <div class="info-item">
+                            <span>Best Time</span>
+                            <span class="info-value">Jun–Sep</span>
+                        </div>
+                        <div class="info-item">
+                            <span>Duration</span>
+                            <span class="info-value">2 Days</span>
+                        </div>
+                        <div class="info-item">
+                            <span>Difficulty</span>
+                            <span class="info-value">Easy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Destination 6 -->
+            <div class="destination-card">
+                <img src="img/omo.png" alt="Omo Valley" class="card-image">
+                <div class="card-content">
+                    <h3>Omo Valley</h3>
+                    <span class="highlight">Cultural Immersion</span>
+                    <p>Home to over 16 distinct tribes including the Mursi, Hamar, and Karo. Witness vibrant ceremonies, traditional dress, and body adornment in one of Africa’s last cultural frontiers.</p>
+                    <div class="card-info">
+                        <div class="info-item">
+                            <span>Best Time</span>
+                            <span class="info-value">Jun–Sep</span>
+                        </div>
+                        <div class="info-item">
+                            <span>Duration</span>
+                            <span class="info-value">5–7 Days</span>
+                        </div>
+                        <div class="info-item">
+                            <span>Difficulty</span>
+                            <span class="info-value">Moderate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        © 2025 ethio-tourism site, all rights reserved
+    </footer>
+</body>
+</html>
+

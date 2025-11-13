@@ -1,0 +1,147 @@
+body {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('img/lalibelabg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.a1 {
+ background-color: rgba(0, 0, 0, 0.7);
+            padding: 1rem 2rem;
+            border-radius: 15px;
+            margin: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+.btn1 {
+    background-color:rgb(15, 15, 15);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-family: monospace;
+    padding: 4px;
+    margin: 2px;
+}
+.btn1:hover {
+    background-color: rgb(212, 212, 0);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.a2 {
+    float: center;
+    text-align: center;
+     background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    padding: 15px;
+    padding-bottom: 70px;
+    margin: 50px auto;
+    color: white;
+    font-family: monospace;
+     width: 300px;
+    height: 200px;
+    box-shadow: 12px;
+}
+input {
+    border: none;
+    border-radius: 6px;
+    padding: 4px;
+    margin: 9px;
+}
+.btn2 {
+    background-color: yellow;
+    border: none;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 5px;
+    border-radius: 15px ;
+    font-family: monospace;
+    font-size: 14px;
+}
+.btn2:hover {
+    background-color: rgb(197, 197, 0);
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 15px;
+}
+
+.a3 {
+    color: white;
+    font-family: monospace;
+    text-align: center;
+    background-color: rgb(15, 15, 15);
+    padding: 7px;
+    border-radius: 15px ;
+    margin: 50px;
+    margin-top: auto;
+    bottom: 0px;
+    
+}
+ header {
+            
+            background-size: cover;
+            background-position: center;
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+  nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+        .hero {
+            flex: 1;
+            display: inline-block;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 50px;
+             background-color: rgba(0, 0, 0, 0.7);
+            margin-top: 50px;
+            border-radius: 12px;
+            margin: 50px auto;
+             position: absolute;
+  top: 45%;
+  left: 49%;
+  transform: translate(-45%, -45%);
+  font-family: monospace;
+
+        }
+         .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: yellow;
+            font-family: monospace;
+        }
+
+        .logo span {
+            color: green;
+        }
+         nav button {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #00ff00;
+        }
+

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EthioTravel - Gallery</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: monospace;
+            background-color: #121212;
+            color: #ffffff;
+            line-height: 1.6;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('img/lalibelabg.png');
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #0d0d0d;
+            padding: 1rem 2rem;
+            border-radius: 15px;
+            margin: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffff00; /* Yellow */
+        }
+
+        .logo span {
+            color: #00ff00; /* Green */
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+               background-color: rgb(197, 197, 0);
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 15px;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 50vh;
+            background: url('https://images.unsplash.com/photo-1593170637105-8b7e52c63f18?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .hero-overlay {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 2rem 3rem;
+            border-radius: 15px;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #cccccc;
+        }
+
+        /* Gallery Section */
+        .gallery-container {
+            padding: 3rem 2rem;
+        }
+
+        .gallery-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            color: #ffffff;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.05);
+        }
+
+        .gallery-content {
+            padding: 1.5rem;
+        }
+
+        .gallery-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: #ffff00;
+        }
+
+        .gallery-content p {
+            font-size: 0.95rem;
+            color: #cccccc;
+            line-height: 1.5;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #0d0d0d;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            border-radius: 15px;
+            margin: 1rem;
+            font-size: 0.9rem;
+            color: #aaaaaa;
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .gallery-title {
+                font-size: 1.8rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                height: 40vh;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .gallery-content {
+                padding: 1rem;
+            }
+
+            .gallery-content h3 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">Ethio<span>Travel</span></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">home</a></li>
+                <li><a href="gallery.html">gallery</a></li>
+                <li><a href="destination.html">tour destination</a></li>
+                <li><a href="about.html">about us</a></li>
+                <li><a href="feedback.html">feedback</a></li>
+                <li><a href="login.html">log out</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay">
+            <h1>Explore Ethiopia's Treasures</h1>
+            <p>Discover the ancient wonders, breathtaking landscapes, and rich cultural heritage captured in our gallery.</p>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-container">
+        <h2 class="gallery-title">Ethiopian Wonders Gallery</h2>
+        <div class="gallery-grid">
+            <!-- Item 1 -->
+            <div class="gallery-item">
+                <img src="img/lalibela.png" alt="Lalibela Rock-Hewn Churches" class="gallery-image">
+                <div class="gallery-content">
+                    <h3>Lalibela Rock-Hewn Churches</h3>
+                    <p>UNESCO World Heritage site featuring 11 medieval monolithic churches carved from rock, considered one of Ethiopia's holiest places.</p>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="gallery-item">
+                <img src="img/simien.png" alt="Simien Mountains" class="gallery-image">
+                <div class="gallery-content">
+                    <h3>Simien Mountains</h3>
+                    <p>Rugged mountain landscapes with dramatic cliffs and unique wildlife including the endemic Gelada baboon and Walia ibex.</p>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="gallery-item">
+                <img src="img/danakil.png" alt="Danakil Depression" class="gallery-image">
+                <div class="gallery-content">
+                    <h3>Danakil Depression</h3>
+                    <p>One of the hottest, lowest, and most alien-looking places on Earth, featuring colorful sulfur springs, salt flats, and active volcanoes.</p>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="gallery-item">
+                <img src="img/abay.png" alt="Lake Tana & Blue Nile Falls" class="gallery-image">
+                <div class="gallery-content">
+                    <h3>Lake Tana & Blue Nile Falls</h3>
+                    <p>Ethiopia's largest lake with ancient island monasteries and the powerful Blue Nile Falls, known locally as "Tis Abay" (Great Smoke).</p>
+                </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="gallery-item">
+                <img src="img/axum.png" alt="Axum Obelisks" class="gallery-image">
+                <div class="gallery-content">
+                    <h3>Axum Obelisks</h3>
+                    <p>Ancient stone monuments dating back to the Aksumite Empire, including the famous 24-meter tall obelisk, symbolizing Ethiopia's glorious past.</p>
+                </div>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="gallery-item">
+                <img src="img/omo.png" alt="Omo Valley Tribes" class="gallery-image">
+                <div class="gallery-content">
+                    <h3>Omo Valley Tribes</h3>
+                    <p>Home to diverse ethnic groups with unique traditions, body art, and ceremonies, offering an unparalleled cultural experience in southern Ethiopia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        © 2025 ethio-tourism site, all rights reserved
+    </footer>
+</body>
+</html>
+

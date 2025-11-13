@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EthioTravel - Feedback</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: monospace;
+             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('img/lalibelabg.png');
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #0d0d0d;
+            padding: 1rem 2rem;
+            border-radius: 15px;
+            margin: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffff00; /* Yellow */
+        }
+
+        .logo span {
+            color: #00ff00; /* Green */
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #00ff00;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 50vh;
+            background: url('https://images.unsplash.com/photo-1593170637105-8b7e52c63f18?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .hero-overlay {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 2rem 3rem;
+            border-radius: 15px;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #cccccc;
+        }
+
+        /* Feedback Section */
+        .feedback-container {
+            padding: 3rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .feedback-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            color: #ffffff;
+        }
+
+        .feedback-form {
+            background-color: #1a1a1a;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #ffff00;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 2px solid #333;
+            border-radius: 8px;
+            background-color: #2a2a2a;
+            color: #ffffff;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #00ff00;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .rating-group {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .rating-star {
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #444;
+            transition: color 0.2s ease;
+        }
+
+        .rating-star.active, .rating-star:hover {
+            color: #ffff00;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #00ff00 0%, #ffff00 100%);
+            color: #000;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(255, 255, 0, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background-color: #1a1a1a;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 2rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .success-message h3 {
+            color: #00ff00;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .success-message p {
+            color: #cccccc;
+            font-size: 1.1rem;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #0d0d0d;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            border-radius: 15px;
+            margin: 2rem 1rem 1rem;
+            font-size: 0.9rem;
+            color: #aaaaaa;
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .feedback-title {
+                font-size: 1.8rem;
+            }
+
+            .feedback-form {
+                padding: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                height: 40vh;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .rating-star {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">Ethio<span>Travel</span></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">home</a></li>
+                <li><a href="gallery.html">gallery</a></li>
+                <li><a href="destination.html">tour destination</a></li>
+                <li><a href="about.html">about us</a></li>
+                <li><a href="feedback.html">feedback</a></li>
+                <li><a href="login.html">log out</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay">
+            <h1>We Value Your Feedback</h1>
+            <p>Help us improve your Ethiopian travel experience by sharing your thoughts with us.</p>
+        </div>
+    </section>
+
+    <!-- Feedback Section -->
+    <section class="feedback-container">
+        <h2 class="feedback-title">Share Your Experience</h2>
+        <form id="feedbackForm" class="feedback-form">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="destination">Visited Destination</label>
+                <select id="destination" class="form-control" required>
+                    <option value="" disabled selected>Select a destination</option>
+                    <option value="lalibela">Lalibela</option>
+                    <option value="simien">Simien Mountains</option>
+                    <option value="danakil">Danakil Depression</option>
+                    <option value="axum">Axum</option>
+                    <option value="tana">Lake Tana & Blue Nile Falls</option>
+                    <option value="omo">Omo Valley</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="rating">Your Experience Rating</label>
+                <div class="rating-group" id="ratingStars">
+                    <span class="rating-star" data-value="1">★</span>
+                    <span class="rating-star" data-value="2">★</span>
+                    <span class="rating-star" data-value="3">★</span>
+                    <span class="rating-star" data-value="4">★</span>
+                    <span class="rating-star" data-value="5">★</span>
+                </div>
+                <input type="hidden" id="rating" name="rating" value="5">
+            </div>
+
+            <div class="form-group">
+                <label for="message">Your Feedback</label>
+                <textarea id="message" class="form-control" placeholder="Tell us about your experience, suggestions, or any concerns..." required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Feedback</button>
+        </form>
+
+        <div id="successMessage" class="success-message">
+            <h3>Thank You for Your Feedback!</h3>
+            <p>We truly appreciate you taking the time to share your experience with us. Your input helps us create better journeys for future travelers.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        © 2025 ethio-tourism site, all rights reserved
+    </footer>
+
+    <script>
+        // Rating functionality
+        const stars = document.querySelectorAll('.rating-star');
+        const ratingInput = document.getElementById('rating');
+        
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                const value = star.getAttribute('data-value');
+                ratingInput.value = value;
+                
+                // Update active states
+                stars.forEach(s => {
+                    if (s.getAttribute('data-value') <= value) {
+                        s.classList.add('active');
+                    } else {
+                        s.classList.remove('active');
+                    }
+                });
+            });
+            
+            star.addEventListener('mouseover', () => {
+                const value = star.getAttribute('data-value');
+                stars.forEach(s => {
+                    if (s.getAttribute('data-value') <= value) {
+                        s.style.color = '#ffff00';
+                    }
+                });
+            });
+            
+            star.addEventListener('mouseout', () => {
+                const currentRating = ratingInput.value;
+                stars.forEach(s => {
+                    if (s.getAttribute('data-value') <= currentRating) {
+                        s.style.color = '#ffff00';
+                    } else {
+                        s.style.color = '#444';
+                    }
+                });
+            });
+        });
+        
+        // Form submission
+        document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real app, you'd send this to a server
+            // For now, we'll just show the success message
+            document.querySelector('.feedback-form').style.display = 'none';
+            document.getElementById('successMessage').classList.add('show');
+        });
+        
+        // Initialize rating
+        document.addEventListener('DOMContentLoaded', () => {
+            const initialRating = ratingInput.value;
+            stars.forEach(star => {
+                if (star.getAttribute('data-value') <= initialRating) {
+                    star.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
